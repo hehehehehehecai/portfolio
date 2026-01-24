@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+
+const projects = await Astro.glob('../content/projects/*.md');
+const sortedProjects = projects.sort((a, b) => {
+  const dateA = new Date(a.frontmatter.date);
+  const dateB = new Date(b.frontmatter.date);
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>我的项目</title>
+	</head>
+	<body class="bg-neutral-950 text-white min-h-screen">
+		<main class="container mx-auto px-4 py-8">
+			<h1 class="text-3xl font-bold mb-8 text-center">我的项目</h1>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				{Array.isArray(sortedProjects) && sortedProjects.map((project) => {
+					const projectLink = project.frontmatter.link || '#';
+					return (
+						<a 
+							href={projectLink} 
+							target="_blank" 
+							rel="noopener noreferrer"
+							class="block"
+						>
+							<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+								{project.frontmatter.image && (
+									<img 
+										src={project.frontmatter.image} 
+										alt={project.frontmatter.title} 
+										class="w-full aspect-video object-cover"
+									/>
+								)}
+								<div class="p-6">
+									<h2 class="text-xl font-semibold mb-2">{project.frontmatter.title}</h2>
+									<p class="text-gray-300 mb-4 text-sm">{project.frontmatter.description}</p>
+									<div class="flex flex-wrap gap-2 mb-4">
+										{Array.isArray(project.frontmatter.tags) && project.frontmatter.tags.map((tag) => (
+											<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full">
+												{tag}
+											</span>
+										))}
+									</div>
+									<div class="flex items-center justify-between text-sm text-gray-400">
+										<span>{new Date(project.frontmatter.date).toLocaleDateString()}</span>
+										<span class="text-blue-400 hover:underline">查看项目</span>
+									</div>
+								</div>
+							</article>
+						</a>
+					);
+				})}
+			</div>
+		</main>
+		<footer class="container mx-auto px-4 py-6 border-t border-neutral-800 mt-12">
+			<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+				<p class="text-gray-500 text-sm">© 2026 Built with Astro & Trae</p>
+				<a 
+					href="mailto:example@example.com" 
+					class="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 transition-colors duration-300 font-medium"
+				>
+					Email Me
+				</a>
+			</div>
+		</footer>
+	</body>
+</html>
