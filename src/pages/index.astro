@@ -12,15 +12,23 @@ const sortedProjects = projects.sort((a, b) => {
 <html lang="zh-CN">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-size='80' text-anchor='middle' dy='0.3em' font-family='Arial, sans-serif' fill='%23ffffff'%3E🧪%3C/text%3E%3C/svg%3E" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>我的项目</title>
+		<title>何晓宇 - Portfolio</title>
+		<meta name="description" content="Chemistry Student @ Nankai Univ. | Indie Developer. Developing efficiency tools with code, exploring the world with chemistry." />
 	</head>
 	<body class="bg-neutral-950 text-white min-h-screen">
 		<main class="container mx-auto px-4 py-8">
-			<h1 class="text-3xl font-bold mb-8 text-center">Portfolio | 何晓宇</h1>
+			<!-- Hero Section -->
+			<section class="text-center mb-16 py-12">
+				<h1 class="text-4xl font-bold mb-4">何晓宇</h1>
+				<h2 class="text-xl text-gray-300 mb-6">Chemistry Student @ Nankai Univ. | Indie Developer</h2>
+				<p class="text-gray-400 max-w-2xl mx-auto">
+					Developing efficiency tools with code, exploring the world with chemistry. Welcome to my digital garden.
+				</p>
+			</section>
+			
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 				{Array.isArray(sortedProjects) && sortedProjects.map((project) => {
 					const projectLink = project.frontmatter.link || '#';
@@ -63,12 +71,22 @@ const sortedProjects = projects.sort((a, b) => {
 		<footer class="container mx-auto px-4 py-6 border-t border-neutral-800 mt-12">
 			<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
 				<p class="text-gray-500 text-sm">© 2026 Built with Astro & Trae</p>
-				<a 
-					href="mailto:example@example.com" 
-					class="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 transition-colors duration-300 font-medium"
-				>
-					Email Me
-				</a>
+				<div class="flex gap-3">
+					<a 
+						href="https://github.com/你的GitHub用户名" 
+						target="_blank" 
+						rel="noopener noreferrer"
+						class="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 transition-colors duration-300 font-medium"
+					>
+						GitHub
+					</a>
+					<a 
+						href="mailto:example@example.com" 
+						class="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 transition-colors duration-300 font-medium"
+					>
+						Email Me
+					</a>
+				</div>
 			</div>
 		</footer>
 	</body>
