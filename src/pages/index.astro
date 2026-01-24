@@ -29,15 +29,15 @@ const sortedProjects = projects.sort((a, b) => {
 				</p>
 			</section>
 			
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-				{Array.isArray(sortedProjects) && sortedProjects.map((project) => {
+			<div class="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 mb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+				{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
 					const projectLink = project.frontmatter.link || '#';
 					return (
 						<a 
 							href={projectLink} 
 							target="_blank" 
 							rel="noopener noreferrer"
-							class="block"
+							class="block flex-shrink-0 w-80 snap-center"
 						>
 							<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
 								{project.frontmatter.image && (
