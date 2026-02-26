@@ -39,7 +39,7 @@ const getSlugFromPath = (path) => {
 				{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
 						return (
 						<a 
-					href={`${import.meta.env.BASE_URL}projects/${getSlugFromPath(project.file)}`} 
+					href={`/portfolio/projects/${getSlugFromPath(project.file)}`} 
 					class="block flex-shrink-0 w-80 snap-center"
 				>
 							<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
