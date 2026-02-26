@@ -7,6 +7,12 @@ const sortedProjects = projects.sort((a, b) => {
   const dateB = new Date(b.frontmatter.date);
   return dateB.getTime() - dateA.getTime();
 });
+
+// 从文件路径中提取 slug
+const getSlugFromPath = (path) => {
+  const match = path.match(/projects\/(.*)\.md$/);
+  return match ? match[1] : '';
+};
 ---
 
 <html lang="zh-CN">
@@ -31,14 +37,11 @@ const sortedProjects = projects.sort((a, b) => {
 			
 			<div class="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 mb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 				{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
-					const projectLink = project.frontmatter.link || '#';
-					return (
+						return (
 						<a 
-							href={projectLink} 
-							target="_blank" 
-							rel="noopener noreferrer"
-							class="block flex-shrink-0 w-80 snap-center"
-						>
+					href={`/projects/${getSlugFromPath(project.file)}`} 
+					class="block flex-shrink-0 w-80 snap-center"
+				>
 							<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
 								{project.frontmatter.image && (
 									<img 
