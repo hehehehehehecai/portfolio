@@ -42,11 +42,9 @@ const { Content } = await project.render();
     <p class="text-gray-400 mb-8">{project.data.description}</p>
 
     <!-- 项目内容 -->
-    <article class="max-w-3xl mx-auto mt-8">
-      <div class="prose prose-invert prose-zinc max-w-none text-left">
-        <Content />
-      </div>
-    </article>
+    <div class="prose prose-invert prose-zinc max-w-3xl mx-auto mt-8 text-left">
+      <Content />
+    </div>
   </div>
 </body>
 </html>
