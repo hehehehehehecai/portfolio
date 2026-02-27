@@ -26,24 +26,26 @@ const { Content } = await project.render();
   <title>{project.data.title} | 项目详情</title>
   <link rel="stylesheet" href="/src/styles/global.css">
 </head>
-<body class="bg-neutral-950 text-white min-h-screen">
-  <div class="container mx-auto px-4 py-8">
-    <!-- 返回首页链接 -->
-    <div class="mb-8">
-      <a href="/portfolio/" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
-        ← 返回首页 (Back to Home)
-      </a>
-    </div>
+<body>
+  <div class="min-h-screen bg-zinc-950 text-zinc-50 pt-10">
+    <div class="container mx-auto px-4 py-8">
+      <!-- 返回首页链接 -->
+      <div class="mb-8">
+        <a href="/portfolio/" class="inline-flex items-center text-zinc-300 hover:text-white transition-colors">
+          ← 返回首页 (Back to Home)
+        </a>
+      </div>
 
-    <!-- 项目标题 -->
-    <h1 class="text-4xl font-bold mb-4">{project.data.title}</h1>
-    
-    <!-- 项目描述 -->
-    <p class="text-gray-400 mb-8">{project.data.description}</p>
+      <!-- 项目标题 -->
+      <h1 class="text-4xl font-bold mb-4">{project.data.title}</h1>
+      
+      <!-- 项目描述 -->
+      <p class="text-gray-400 mb-8">{project.data.description}</p>
 
-    <!-- 项目内容 -->
-    <div class="prose prose-invert prose-zinc max-w-3xl mx-auto mt-8 text-left">
-      <Content />
+      <!-- 项目内容 -->
+      <div class="prose prose-invert prose-zinc max-w-3xl mx-auto mt-8 text-left">
+        <Content />
+      </div>
     </div>
   </div>
 </body>
