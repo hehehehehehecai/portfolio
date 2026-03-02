@@ -35,40 +35,53 @@ const getSlugFromPath = (path) => {
 				</p>
 			</section>
 			
-			<div class="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 mb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-				{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
-						return (
-						<a 
-					href={`/portfolio/projects/${getSlugFromPath(project.file)}/`} 
-					class="block flex-shrink-0 w-80 snap-center"
-				>
-							<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-								{project.frontmatter.image && (
-									<img 
-										src={project.frontmatter.image} 
-										alt={project.frontmatter.title} 
-										class="w-full aspect-video object-cover"
-									/>
-								)}
-								<div class="p-6">
-									<h2 class="text-xl font-semibold mb-2">{project.frontmatter.title}</h2>
-									<p class="text-gray-300 mb-4 text-sm">{project.frontmatter.description}</p>
-									<div class="flex flex-wrap gap-2 mb-4">
-										{Array.isArray(project.frontmatter.tags) && project.frontmatter.tags.map((tag) => (
-											<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full">
-												{tag}
-											</span>
-										))}
+			<div class="relative mb-8">
+				<!-- 左箭头按钮 -->
+				<button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 -left-6 md:-left-8 w-12 h-12 flex items-center justify-center text-2xl bg-zinc-800 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
+					&lt;
+				</button>
+
+				<!-- 项目卡片滚动容器 -->
+				<div id="project-slider" class="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+					{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
+							return (
+							<a 
+								href={`/portfolio/projects/${getSlugFromPath(project.file)}/`} 
+								class="block flex-shrink-0 w-80 snap-center"
+							>
+								<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+									{project.frontmatter.image && (
+										<img 
+											src={project.frontmatter.image} 
+											alt={project.frontmatter.title} 
+											class="w-full aspect-video object-cover"
+										/>
+									)}
+									<div class="p-6">
+										<h2 class="text-xl font-semibold mb-2">{project.frontmatter.title}</h2>
+										<p class="text-gray-300 mb-4 text-sm">{project.frontmatter.description}</p>
+										<div class="flex flex-wrap gap-2 mb-4">
+											{Array.isArray(project.frontmatter.tags) && project.frontmatter.tags.map((tag) => (
+												<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full">
+													{tag}
+												</span>
+											))}
+										</div>
+										<div class="flex items-center justify-between text-sm text-gray-400">
+											<span>{new Date(project.frontmatter.date).toLocaleDateString()}</span>
+											<span class="text-blue-400 hover:underline">查看项目</span>
+										</div>
 									</div>
-									<div class="flex items-center justify-between text-sm text-gray-400">
-										<span>{new Date(project.frontmatter.date).toLocaleDateString()}</span>
-										<span class="text-blue-400 hover:underline">查看项目</span>
-									</div>
-								</div>
-							</article>
-						</a>
-					);
-				})}
+								</article>
+							</a>
+						);
+					})}
+				</div>
+
+				<!-- 右箭头按钮 -->
+				<button id="next-btn" class="absolute top-1/2 -translate-y-1/2 -right-6 md:-right-8 w-12 h-12 flex items-center justify-center text-2xl bg-zinc-800 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
+					&gt;
+				</button>
 			</div>
 		</main>
 		<footer class="container mx-auto px-4 py-6 border-t border-neutral-800 mt-12">
@@ -92,5 +105,22 @@ const getSlugFromPath = (path) => {
 				</div>
 			</div>
 		</footer>
+
+		<script is:inline>
+			// 滚动控制脚本
+			const slider = document.getElementById('project-slider');
+			const prevBtn = document.getElementById('prev-btn');
+			const nextBtn = document.getElementById('next-btn');
+
+			if (slider && prevBtn && nextBtn) {
+				prevBtn.addEventListener('click', () => {
+					slider.scrollBy({ left: -350, behavior: 'smooth' });
+				});
+
+				nextBtn.addEventListener('click', () => {
+					slider.scrollBy({ left: 350, behavior: 'smooth' });
+				});
+			}
+		</script>
 	</body>
 </html>
