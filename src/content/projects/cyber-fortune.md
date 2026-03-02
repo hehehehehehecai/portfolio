@@ -1,13 +1,10 @@
 ---
 title: "赛博求签 (CyberFortune)"
 description: "结合东方玄学与赛博朋克美学的跨平台游戏化运势工具"
-pubDate: 2026-03-02
+date: 2026-03-02
 image: " `https://placehold.co/600x400/2a2a2a/FFF?text=Cyber+Fortune` "
 tags: ["App", "React Native", "Gamification"]
 ---
-
-<br>
-
 **“打破传统玄学的单一文本，做现代年轻人的沉浸式心理暗示工具。”**
 
 《赛博求签》是一款结合了传统东方玄学与赛博朋克视觉美学的跨平台应用。它打破了传统算命应用的单一文本生成模式，引入了物理引擎交互、本地数据持久化以及游戏化收集系统，致力于为现代年轻人提供沉浸式的心理暗示与趣味运势记录工具。
