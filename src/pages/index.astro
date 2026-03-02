@@ -39,8 +39,9 @@ const getSlugFromPath = (path) => {
 
 				<h1 class="text-4xl font-bold mb-4">何晓宇</h1>
 				<h2 class="text-xl text-gray-300 mb-6">Chemistry Student @ Nankai Univ. | Indie Developer</h2>
-				<p class="text-gray-400 max-w-2xl mx-auto">
-					Developing efficiency tools with code, exploring the world with chemistry. Welcome to my digital garden.
+				<p class="text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-lg min-h-[4rem] md:min-h-[3rem]">
+					<span id="typewriter-text"></span>
+					<span class="inline-block w-2 h-5 bg-zinc-400 animate-pulse align-middle ml-1"></span>
 				</p>
 
 				<!-- 技能标签墙 -->
@@ -141,6 +142,26 @@ const getSlugFromPath = (path) => {
 					slider.scrollBy({ left: 350, behavior: 'smooth' });
 				});
 			}
+		</script>
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				const text = "Developing efficiency tools with code, exploring the world with chemistry. Welcome to my digital garden.";
+				const speed = 40; // 打字速度 (毫秒)
+				let i = 0;
+				const target = document.getElementById("typewriter-text");
+				
+				function typeWriter() {
+					if (target && i < text.length) {
+						target.innerHTML += text.charAt(i);
+						i++;
+						setTimeout(typeWriter, speed);
+					}
+				}
+				
+				// 延迟 500ms 后开始打字，增加戏剧感
+				setTimeout(typeWriter, 500);
+			});
 		</script>
 	</body>
 </html>
