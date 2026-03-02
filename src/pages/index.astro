@@ -35,21 +35,21 @@ const getSlugFromPath = (path) => {
 				</p>
 			</section>
 			
-			<div class="relative mb-8">
+			<div class="relative max-w-6xl mx-auto px-4 mb-8">
 				<!-- 左箭头按钮 -->
 				<button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 -left-6 md:-left-8 w-12 h-12 flex items-center justify-center text-2xl bg-zinc-800 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
 					&lt;
 				</button>
 
 				<!-- 项目卡片滚动容器 -->
-				<div id="project-slider" class="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+				<div id="project-slider" class="flex items-stretch flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 					{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
 							return (
 							<a 
 								href={`/portfolio/projects/${getSlugFromPath(project.file)}/`} 
-								class="block flex-shrink-0 w-80 snap-center"
+								class="w-[calc((100%-3rem)/3)] flex-shrink-0 snap-start h-full flex flex-col"
 							>
-								<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+								<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02] h-full flex flex-col justify-between">
 									{project.frontmatter.image && (
 										<img 
 											src={project.frontmatter.image} 

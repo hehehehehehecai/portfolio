@@ -2,6 +2,7 @@
 title: 勇者酒馆
 description: 一款结合 RPG 像素风与经济闭环的游戏化时间管理 App
 date: 2025-12-20
+image: "https://placehold.co/600x400/2a2a2a/FFF?text=Hero+Tavern"
 tags: ["App", "Python"]
 ---
 <br>
