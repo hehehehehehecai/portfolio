@@ -46,13 +46,13 @@ const getSlugFromPath = (path) => {
 
 				<!-- 技能标签墙 -->
 				<div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-10">
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">React Native (Expo)</span>
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">Astro & Tailwind CSS</span>
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">Supabase (PostgreSQL)</span>
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">Prompt Engineering</span>
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">Python</span>
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">UI/UX Design</span>
-					<span class="px-4 py-2 bg-zinc-800/40 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-colors cursor-default shadow-sm">视频制作与剪辑</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">React Native (Expo)</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">Astro & Tailwind CSS</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">Supabase (PostgreSQL)</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">Prompt Engineering</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">Python</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">UI/UX Design</span>
+					<span class="px-4 py-2 bg-zinc-900/60 backdrop-blur-xl text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-zinc-400 hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-lg hover:shadow-zinc-700/20 hover:-translate-y-0.5">视频制作与剪辑</span>
 				</div>
 			</section>
 			
@@ -70,7 +70,7 @@ const getSlugFromPath = (path) => {
 								href={`/projects/${getSlugFromPath(project.file)}`} 
 								class="w-[calc((100%-3rem)/3)] flex-shrink-0 snap-start h-full flex flex-col"
 							>
-								<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02] h-full flex flex-col justify-between">
+								<article class="bg-zinc-900/60 backdrop-blur-xl rounded-lg shadow-md overflow-hidden border border-zinc-700/50 transition-all duration-300 hover:scale-[1.02] hover:border-zinc-500 hover:shadow-2xl hover:shadow-zinc-700/20 hover:-translate-y-1 h-full flex flex-col justify-between">
 									{project.frontmatter.image && (
 										<img 
 											src={project.frontmatter.image} 
