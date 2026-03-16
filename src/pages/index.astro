@@ -67,7 +67,7 @@ const getSlugFromPath = (path) => {
 					{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
 							return (
 							<a 
-								href={`/portfolio/projects/${getSlugFromPath(project.file)}/`} 
+								href={`/projects/${getSlugFromPath(project.file)}`} 
 								class="w-[calc((100%-3rem)/3)] flex-shrink-0 snap-start h-full flex flex-col"
 							>
 								<article class="bg-neutral-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02] h-full flex flex-col justify-between">
