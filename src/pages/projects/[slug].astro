@@ -49,11 +49,11 @@ const { Content } = await project.render();
             <!-- 图片滚动容器 -->
             <div id="showcase-slider" class="flex items-stretch flex-nowrap overflow-x-auto gap-4 snap-x snap-mandatory scroll-smooth py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div class="flex-shrink-0 w-72 md:w-80 rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 snap-center transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
+                <div class="flex-shrink-0 rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 snap-center transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
                   <img 
                     src={`/images/idea-graveyard/idea-graveyard-detail-${i}.png`} 
                     alt={`灵感公墓功能截图 ${i}`} 
-                    class="w-full h-96 object-cover rounded-xl" 
+                    class="h-80 md:h-96 w-auto max-w-none object-contain rounded-xl" 
                   />
                 </div>
               ))}
