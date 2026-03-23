@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import { CollectionEntry, type AstroGlobal } from 'astro';
+import { CollectionEntry } from 'astro';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -18,17 +19,8 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{project.data.title} | 项目详情</title>
-  <meta name="description" content={project.data.description} />
-  <link rel="stylesheet" href="/src/styles/global.css">
-</head>
-<body>
-  <div class="min-h-screen bg-zinc-950 text-zinc-50 pt-10">
+<Layout title={project.data.title} description={project.data.description}>
+  <div class="min-h-screen pt-10">
     <div class="container mx-auto px-4 py-8">
       <!-- 返回首页链接 -->
       <div class="mb-8">
@@ -38,10 +30,10 @@ const { Content } = await project.render();
       </div>
 
       <!-- 项目标题 -->
-      <h1 class="text-4xl font-bold mb-4">{project.data.title}</h1>
+      <h1 class="text-4xl font-bold mb-4 text-zinc-100">{project.data.title}</h1>
       
       <!-- 项目描述 -->
-      <p class="text-gray-400 mb-8">{project.data.description}</p>
+      <p class="text-zinc-400 mb-8">{project.data.description}</p>
 
       <!-- 应用展示模块 - 仅灵感公墓项目显示 -->
       {project.slug === 'idea-graveyard' && (
@@ -57,11 +49,11 @@ const { Content } = await project.render();
             <!-- 图片滚动容器 -->
             <div id="showcase-slider" class="flex items-stretch flex-nowrap overflow-x-auto gap-4 snap-x snap-mandatory scroll-smooth py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div class="flex-shrink-0 rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 snap-center transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
+                <div class="flex-shrink-0 w-72 md:w-80 rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 snap-center transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
                   <img 
                     src={`/images/idea-graveyard/idea-graveyard-detail-${i}.png`} 
                     alt={`灵感公墓功能截图 ${i}`} 
-                    class="w-auto h-[448px] md:h-[512px] object-cover" 
+                    class="w-full h-96 object-cover rounded-xl" 
                   />
                 </div>
               ))}
@@ -81,14 +73,7 @@ const { Content } = await project.render();
       </article>
     </div>
   </div>
-</body>
-</html>
-<style is:global>
-  html, body {
-    background-color: #09090b !important; /* 强制纯黑底色 */
-    color: #f4f4f5 !important; /* 强制白色文字 */
-  }
-</style>
+</Layout>
 
 <script is:inline>
   // 应用展示轮播控制脚本
