@@ -68,7 +68,7 @@ const getSlugFromPath = (path) => {
 							return (
 							<a 
 								href={`/projects/${getSlugFromPath(project.file)}`} 
-								class="w-[calc((100%-3rem)/3)] flex-shrink-0 snap-start h-full flex flex-col"
+								class="w-[85vw] md:w-[calc((100%-3rem)/3)] shrink-0 snap-center h-full flex flex-col"
 							>
 								<article class="relative overflow-hidden rounded-xl bg-zinc-900/30 backdrop-blur-md border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] group h-full flex flex-col justify-between">
 									{project.frontmatter.image && (
@@ -79,11 +79,11 @@ const getSlugFromPath = (path) => {
 										/>
 									)}
 									<div class="p-6">
-										<h2 class="text-xl font-semibold mb-2">{project.frontmatter.title}</h2>
-										<p class="text-gray-300 mb-4 text-sm">{project.frontmatter.description}</p>
+										<h2 class="text-xl font-semibold mb-2 break-words">{project.frontmatter.title}</h2>
+										<p class="text-gray-300 mb-4 text-sm break-words">{project.frontmatter.description}</p>
 										<div class="flex flex-wrap gap-2 mb-4">
 											{Array.isArray(project.frontmatter.tags) && project.frontmatter.tags.map((tag) => (
-												<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full">
+												<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full whitespace-nowrap">
 													{tag}
 												</span>
 											))}

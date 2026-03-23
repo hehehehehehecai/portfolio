@@ -43,10 +43,42 @@ const { Content } = await project.render();
       <!-- 项目描述 -->
       <p class="text-gray-400 mb-8">{project.data.description}</p>
 
+      <!-- 应用展示模块 - 仅灵感公墓项目显示 -->
+      {project.slug === 'idea-graveyard' && (
+        <section class="mb-8">
+          <h3 class="text-2xl font-semibold text-zinc-100 mt-12 mb-6">🪦 APP 实机展示 (App Showcase)</h3>
+          
+          <div class="relative">
+            <!-- 左箭头按钮 -->
+            <button id="showcase-prev-btn" class="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-xl md:text-2xl bg-zinc-800/80 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
+              &lt;
+            </button>
+
+            <!-- 图片滚动容器 -->
+            <div id="showcase-slider" class="flex items-stretch flex-nowrap overflow-x-auto gap-4 snap-x snap-mandatory scroll-smooth py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div class="flex-shrink-0 rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 snap-center transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
+                  <img 
+                    src={`/images/idea-graveyard/idea-graveyard-detail-${i}.png`} 
+                    alt={`灵感公墓功能截图 ${i}`} 
+                    class="w-auto h-[448px] md:h-[512px] object-cover" 
+                  />
+                </div>
+              ))}
+            </div>
+
+            <!-- 右箭头按钮 -->
+            <button id="showcase-next-btn" class="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-xl md:text-2xl bg-zinc-800/80 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
+              &gt;
+            </button>
+          </div>
+        </section>
+      )}
+
       <!-- 项目内容 -->
-      <div class="prose prose-invert prose-zinc max-w-3xl mx-auto mt-8 text-left">
+      <article class="prose prose-invert prose-zinc max-w-none prose-img:rounded-xl prose-img:shadow-lg prose-headings:text-zinc-100">
         <Content />
-      </div>
+      </article>
     </div>
   </div>
 </body>
@@ -57,3 +89,22 @@ const { Content } = await project.render();
     color: #f4f4f5 !important; /* 强制白色文字 */
   }
 </style>
+
+<script is:inline>
+  // 应用展示轮播控制脚本
+  document.addEventListener('DOMContentLoaded', () => {
+    const showcaseSlider = document.getElementById('showcase-slider');
+    const prevBtn = document.getElementById('showcase-prev-btn');
+    const nextBtn = document.getElementById('showcase-next-btn');
+
+    if (showcaseSlider && prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        showcaseSlider.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        showcaseSlider.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
