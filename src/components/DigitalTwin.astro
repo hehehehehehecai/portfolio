@@ -1,0 +1,313 @@
+---
+// DigitalTwin.astro - 何晓宇的数字分身聊天组件（浅色玻璃拟态版）
+---
+
+<div id="digital-twin-container" class="z-50">
+  <!-- 悬浮按钮 -->
+  <button
+    id="digital-twin-toggle"
+    class="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-700 text-white shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] transition-all duration-300 flex items-center justify-center text-2xl animate-pulse-glow group"
+    aria-label="打开数字分身"
+  >
+    <span class="group-hover:scale-110 transition-transform">🤖</span>
+  </button>
+
+  <!-- 聊天窗口 -->
+  <div
+    id="digital-twin-chat"
+    class="fixed bottom-24 right-6 z-[99] w-96 h-[500px] sm:w-96 rounded-xl bg-white/85 backdrop-blur-md border border-white/60 shadow-2xl shadow-zinc-200/50 flex flex-col overflow-hidden opacity-0 scale-95 translate-y-4 pointer-events-none transition-all duration-300"
+  >
+    <!-- 头部 -->
+    <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-200/60 bg-white/70">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-sm">🤖</div>
+        <div>
+          <div class="text-sm font-semibold text-zinc-800">Xiaoyu's AI</div>
+          <div class="text-xs text-emerald-500 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            在线
+          </div>
+        </div>
+      </div>
+      <button
+        id="digital-twin-close"
+        class="w-7 h-7 rounded-lg hover:bg-zinc-200/80 flex items-center justify-center text-zinc-400 hover:text-zinc-700 transition-colors"
+        aria-label="关闭"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- 消息列表 -->
+    <div id="digital-twin-messages" class="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin bg-white/30">
+      <!-- 欢迎消息 -->
+      <div class="flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-xs mt-1">🤖</div>
+        <div class="flex-1 max-w-[85%]">
+          <div class="bg-zinc-100/80 backdrop-blur-sm rounded-lg rounded-tl-sm px-3 py-2 text-sm text-zinc-800 leading-relaxed border border-zinc-200/40">
+            👋 你好！我是何晓宇的数字助理。我可以为你介绍他的项目经历、技术能力，或者帮你安排面试邀约。<br/><br/>有什么想了解的吗？
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div id="digital-twin-loading" class="hidden px-4 pb-2">
+      <div class="flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex-shrink-0 flex items-center justify-center text-xs">🤖</div>
+        <div class="bg-zinc-100/80 backdrop-blur-sm rounded-lg rounded-tl-sm px-4 py-3 border border-zinc-200/40">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-violet-500 animate-bounce" style="animation-delay: 0ms"></span>
+            <span class="w-2 h-2 rounded-full bg-violet-500 animate-bounce" style="animation-delay: 150ms"></span>
+            <span class="w-2 h-2 rounded-full bg-violet-500 animate-bounce" style="animation-delay: 300ms"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 输入区域 -->
+    <div class="p-3 border-t border-zinc-200/60 bg-white/70">
+      <form id="digital-twin-form" class="flex gap-2">
+        <input
+          type="text"
+          id="digital-twin-input"
+          placeholder="输入你的问题..."
+          class="flex-1 bg-white border border-zinc-200 rounded-lg px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/25 transition-all"
+          autocomplete="off"
+        />
+        <button
+          type="submit"
+          id="digital-twin-send"
+          class="px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(139,92,246,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
+        >
+          发送
+        </button>
+      </form>
+      <div class="mt-2 text-xs text-zinc-400 text-center">
+        由 DeepSeek AI 驱动 · 数据安全加密传输
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(139, 92, 246, 0.8);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  #digital-twin-chat.open {
+    opacity: 1 !important;
+    scale: 1 !important;
+    translate: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* 自定义滚动条 - 浅色风格 */
+  #digital-twin-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  #digital-twin-messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #digital-twin-messages::-webkit-scrollbar-thumb {
+    background: rgba(161, 161, 170, 0.4);
+    border-radius: 2px;
+  }
+
+  #digital-twin-messages::-webkit-scrollbar-thumb:hover {
+    background: rgba(161, 161, 170, 0.6);
+  }
+
+  /* 响应式调整 - 移动端自适应宽度 */
+  @media (max-width: 480px) {
+    #digital-twin-chat {
+      width: 90vw !important;
+      right: 1rem !important;
+      left: auto !important;
+      height: 450px !important;
+    }
+
+    #digital-twin-toggle {
+      right: 1rem !important;
+      bottom: 1rem !important;
+    }
+  }
+</style>
+
+<script>
+  // 数字分身聊天逻辑
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('digital-twin-toggle');
+    const chat = document.getElementById('digital-twin-chat');
+    const close = document.getElementById('digital-twin-close');
+    const form = document.getElementById('digital-twin-form');
+    const input = document.getElementById('digital-twin-input') as HTMLInputElement | null;
+    const messages = document.getElementById('digital-twin-messages');
+    const loading = document.getElementById('digital-twin-loading');
+    const sendBtn = document.getElementById('digital-twin-send') as HTMLButtonElement | null;
+
+    let isOpen = false;
+    let conversationHistory: Array<{ role: string; content: string }> = [];
+
+    // 切换聊天窗口
+    const toggleChat = () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        chat?.classList.add('open');
+        input?.focus();
+      } else {
+        chat?.classList.remove('open');
+      }
+    };
+
+    toggle?.addEventListener('click', toggleChat);
+    close?.addEventListener('click', toggleChat);
+
+    // 添加消息到界面
+    const addMessage = (role: string, content: string) => {
+      if (!messages) return;
+
+      const isUser = role === 'user';
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex gap-3 ${isUser ? 'flex-row-reverse' : ''}`;
+
+      const avatar = document.createElement('div');
+      avatar.className = `w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs mt-1 ${
+        isUser ? 'bg-gradient-to-br from-blue-500 to-cyan-500' : 'bg-gradient-to-br from-violet-500 to-indigo-600'
+      }`;
+      avatar.textContent = isUser ? '👤' : '🤖';
+
+      const bubble = document.createElement('div');
+      bubble.className = `flex-1 max-w-[85%] ${isUser ? 'text-right' : ''}`;
+
+      const contentDiv = document.createElement('div');
+      contentDiv.className = `inline-block ${
+        isUser
+          ? 'bg-blue-500 text-white rounded-lg rounded-tr-sm'
+          : 'bg-zinc-100/80 backdrop-blur-sm text-zinc-800 rounded-lg rounded-tl-sm border border-zinc-200/40'
+      } px-3 py-2 text-sm leading-relaxed`;
+      
+      // 解析 Markdown 格式的简单内容
+      contentDiv.innerHTML = formatMessage(content);
+
+      bubble.appendChild(contentDiv);
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(bubble);
+      messages.appendChild(messageDiv);
+
+      // 自动滚动到底部
+      messages.scrollTop = messages.scrollHeight;
+    };
+
+    // 格式化消息（简单 Markdown 支持）
+    const formatMessage = (text: string): string => {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code class="bg-zinc-200/60 px-1 rounded text-xs text-zinc-700">$1</code>')
+        .replace(/\n/g, '<br>');
+    };
+
+    // 显示/隐藏加载动画
+    const showLoading = () => {
+      loading?.classList.remove('hidden');
+      if (messages) {
+        messages.scrollTop = messages.scrollHeight;
+      }
+    };
+
+    const hideLoading = () => {
+      loading?.classList.add('hidden');
+    };
+
+    // 发送消息
+    const sendMessage = async (e?: Event) => {
+      e?.preventDefault();
+
+      const message = input?.value.trim();
+      if (!message || sendBtn?.disabled) return;
+
+      // 清空输入框并禁用发送按钮
+      if (input) {
+        input.value = '';
+      }
+      if (sendBtn) {
+        sendBtn.disabled = true;
+      }
+
+      // 添加用户消息
+      addMessage('user', message);
+
+      // 记录对话历史
+      conversationHistory.push({ role: 'user', content: message });
+
+      // 显示加载动画
+      showLoading();
+
+      try {
+        // 调用 API
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: conversationHistory,
+            stream: false
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`API 错误: ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        // 检查后端是否返回错误
+        if (data.error) {
+          throw new Error(data.error);
+        }
+        
+        const assistantMessage = data.reply || '抱歉，我暂时无法回答这个问题。';
+
+        // 隐藏加载动画
+        hideLoading();
+
+        // 添加 AI 回复
+        addMessage('assistant', assistantMessage);
+
+        // 记录到历史
+        conversationHistory.push({ role: 'assistant', content: assistantMessage });
+
+      } catch (error) {
+        console.error('发送消息错误:', error);
+        hideLoading();
+        addMessage('assistant', '⚠️ 抱歉，网络连接出现问题。请稍后重试。');
+      } finally {
+        if (sendBtn) {
+          sendBtn.disabled = false;
+        }
+        input?.focus();
+      }
+    };
+
+    form?.addEventListener('submit', sendMessage);
+
+    // Enter 键发送
+    input?.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  });
+</script>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import DigitalTwin from '../components/DigitalTwin.astro';
 
 const projects = await Astro.glob('../content/projects/*.md');
 const sortedProjects = projects.sort((a, b) => {
@@ -9,7 +10,7 @@ const sortedProjects = projects.sort((a, b) => {
 });
 
 // 从文件路径中提取 slug
-const getSlugFromPath = (path) => {
+const getSlugFromPath = (path: string) => {
   const match = path.match(/projects\/(.*)\.md$/);
   return match ? match[1] : '';
 };
@@ -134,7 +135,7 @@ const getSlugFromPath = (path) => {
 						<time class="text-sm font-mono text-zinc-500 block mb-1">2026.01</time>
 						<h3 class="text-lg font-semibold text-zinc-200 mb-1">桌面效率：半衰期文件管理</h3>
 						<p class="text-zinc-400 text-sm leading-relaxed">
-							构建沉浸式桌面工具《流沙中转站》。将“断舍离”哲学与粒子沙丘视觉效果结合，解决桌面文件冗余痛点。
+							构建沉浸式桌面工具《流沙中转站》。将"断舍离"哲学与粒子沙丘视觉效果结合，解决桌面文件冗余痛点。
 						</p>
 					</div>
 					<div class="relative pl-8 group">
@@ -206,5 +207,7 @@ const getSlugFromPath = (path) => {
 				setTimeout(typeWriter, 500);
 			});
 		</script>
+
+		<DigitalTwin />
 	</body>
 </html>

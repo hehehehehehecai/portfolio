@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import DigitalTwin from '../components/DigitalTwin.astro';
 
 interface Props {
   title: string;
@@ -20,6 +21,7 @@ const { title, description = '个人项目展示' } = Astro.props;
   </head>
   <body class="bg-black bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] text-zinc-300 min-h-screen">
     <slot />
+    <DigitalTwin />
   </body>
 </html>
 
