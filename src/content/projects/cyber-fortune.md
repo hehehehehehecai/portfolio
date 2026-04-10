@@ -5,58 +5,6 @@ date: 2026-03-02
 image: "https://placehold.co/600x400/2a2a2a/FFF?text=Cyber+Fortune"
 tags: ["App", "React Native", "Gamification"]
 ---
-<h3 class="text-2xl font-semibold text-zinc-100 mt-12 mb-6">🔮 APP 实机展示 (App Showcase)</h3>
-
-<style>
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
-
-<div class="relative group not-prose mb-12">
-<div id="carousel-scroll-area" class="flex flex-nowrap overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-8 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar">
-
-<div class="flex-shrink-0 snap-center rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
-<img src="/images/cyber-fortune/cyber-fortune1.png" alt="赛博求签截图 1" class="h-96 w-auto object-contain rounded-xl" />
-</div>
-<div class="flex-shrink-0 snap-center rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
-<img src="/images/cyber-fortune/cyber-fortune2.png" alt="赛博求签截图 2" class="h-96 w-auto object-contain rounded-xl" />
-</div>
-<div class="flex-shrink-0 snap-center rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
-<img src="/images/cyber-fortune/cyber-fortune3.png" alt="赛博求签截图 3" class="h-96 w-auto object-contain rounded-xl" />
-</div>
-<div class="flex-shrink-0 snap-center rounded-xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] overflow-hidden">
-<img src="/images/cyber-fortune/cyber-fortune4.png" alt="赛博求签截图 4" class="h-96 w-auto object-contain rounded-xl" />
-</div>
-
-</div>
-
-<button id="btn-scroll-left" class="absolute top-1/2 -translate-y-1/2 left-2 w-12 h-12 rounded-full bg-zinc-900/80 backdrop-blur-sm flex items-center justify-center text-zinc-100 shadow-[0_0_30px_rgba(161,161,170,0.2)] hover:bg-zinc-800/80 transition-all z-10 opacity-0 group-hover:opacity-100">
-<span class="text-2xl font-mono"><</span>
-</button>
-<button id="btn-scroll-right" class="absolute top-1/2 -translate-y-1/2 right-2 w-12 h-12 rounded-full bg-zinc-900/80 backdrop-blur-sm flex items-center justify-center text-zinc-100 shadow-[0_0_30px_rgba(161,161,170,0.2)] hover:bg-zinc-800/80 transition-all z-10 opacity-0 group-hover:opacity-100">
-<span class="text-2xl font-mono">></span>
-</button>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollArea = document.getElementById('carousel-scroll-area');
-  const btnLeft = document.getElementById('btn-scroll-left');
-  const btnRight = document.getElementById('btn-scroll-right');
-
-  if (scrollArea && btnLeft && btnRight) {
-    btnLeft.addEventListener('click', () => {
-      // 每次向左滚动 400 像素，可根据卡片宽度微调
-      scrollArea.scrollBy({ left: -400, behavior: 'smooth' });
-    });
-    btnRight.addEventListener('click', () => {
-      // 每次向右滚动 400 像素
-      scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
-    });
-  }
-});
-</script>
-</div>
-
 **"打破传统玄学的单一文本，做现代年轻人的沉浸式心理暗示工具。"**
 
 《赛博求签》是一款结合了传统东方玄学与赛博朋克视觉美学的跨平台应用。它打破了传统算命应用的单一文本生成模式，引入了物理引擎交互、本地数据持久化以及游戏化收集系统，致力于为现代年轻人提供沉浸式的心理暗示与趣味运势记录工具。
