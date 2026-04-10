@@ -1,19 +1,14 @@
 ---
 import '../styles/global.css';
 import DigitalTwin from '../components/DigitalTwin.astro';
+import { getCollection } from 'astro:content';
 
-const projects = await Astro.glob('../content/projects/*.md');
+const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => {
-  const dateA = new Date(a.frontmatter.date);
-  const dateB = new Date(b.frontmatter.date);
+  const dateA = new Date(a.data.date);
+  const dateB = new Date(b.data.date);
   return dateB.getTime() - dateA.getTime();
 });
-
-// 从文件路径中提取 slug
-const getSlugFromPath = (path: string) => {
-  const match = path.match(/projects\/(.*)\.md$/);
-  return match ? match[1] : '';
-};
 ---
 
 <html lang="zh-CN">
@@ -68,29 +63,29 @@ const getSlugFromPath = (path: string) => {
 					{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
 							return (
 							<a 
-								href={`/projects/${getSlugFromPath(project.file)}`} 
+								href={`/projects/${project.slug}`} 
 								class="w-[85vw] md:w-[calc((100%-3rem)/3)] shrink-0 snap-center h-full flex flex-col"
 							>
 								<article class="relative overflow-hidden rounded-xl bg-zinc-900/30 backdrop-blur-md border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] group h-full flex flex-col justify-between">
-									{project.frontmatter.image && (
+									{project.data.image && (
 										<img 
-											src={project.frontmatter.image} 
-											alt={project.frontmatter.title} 
+											src={project.data.image} 
+											alt={project.data.title} 
 											class="w-full aspect-video object-cover"
 										/>
 									)}
 									<div class="p-6">
-										<h2 class="text-xl font-semibold mb-2 break-words">{project.frontmatter.title}</h2>
-										<p class="text-gray-300 mb-4 text-sm break-words">{project.frontmatter.description}</p>
+										<h2 class="text-xl font-semibold mb-2 break-words">{project.data.title}</h2>
+										<p class="text-gray-300 mb-4 text-sm break-words">{project.data.description}</p>
 										<div class="flex flex-wrap gap-2 mb-4">
-											{Array.isArray(project.frontmatter.tags) && project.frontmatter.tags.map((tag) => (
+											{Array.isArray(project.data.tags) && project.data.tags.map((tag) => (
 												<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full whitespace-nowrap">
 													{tag}
 												</span>
 											))}
 										</div>
 										<div class="flex items-center justify-between text-sm text-gray-400">
-											<span>{new Date(project.frontmatter.date).toLocaleDateString()}</span>
+											<span>{new Date(project.data.date).toLocaleDateString()}</span>
 											<span class="text-blue-400 hover:underline">查看项目</span>
 										</div>
 									</div>
