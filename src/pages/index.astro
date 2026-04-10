@@ -22,166 +22,239 @@ const sortedProjects = projects.sort((a, b) => {
 	</head>
 	<body class="bg-black bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] text-zinc-300 min-h-screen">
 		<main class="container mx-auto px-4 py-8">
-			<!-- Hero Section -->
-			<section class="text-center mb-16 py-12">
-				<!-- 求职状态徽章 -->
-				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-6 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-					<span class="relative flex h-2.5 w-2.5">
-						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-						<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-					</span>
-					Actively seeking 2026 opportunities
-				</div>
+			<!-- 极客主控台网格布局 -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+				<!-- 顶部主名片卡片（Hero Bento） -->
+				<section class="md:col-span-3 bg-[#131313]/80 backdrop-blur-md border border-zinc-800 rounded-2xl p-8 md:p-12">
+					<div class="grid grid-cols-1 md:grid-cols-3 md:gap-8">
+						<!-- 左侧：个人 Slogan 和求职方向 -->
+						<div class="md:col-span-2 space-y-6">
+							<!-- 求职状态徽章 -->
+							<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-4 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+								<span class="relative flex h-2.5 w-2.5">
+									<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+									<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+								</span>
+								Actively seeking 2026 opportunities
+							</div>
 
-				<h1 class="text-4xl font-bold mb-4">何晓宇</h1>
-				<h2 class="text-xl text-gray-300 mb-6">Chemistry Student @ Nankai Univ. | Indie Developer</h2>
-				<p class="text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-lg min-h-[4rem] md:min-h-[3rem]">
-					<span id="typewriter-text"></span>
-					<span class="inline-block w-2 h-5 bg-zinc-400 animate-pulse align-middle ml-1"></span>
-				</p>
+							<h1 class="text-4xl md:text-5xl font-bold text-zinc-100">何晓宇</h1>
+							<h2 class="text-xl text-zinc-400">Chemistry Student @ Nankai Univ. | Indie Developer</h2>
+							
+							<p class="text-zinc-400 max-w-2xl leading-relaxed text-lg min-h-[4rem] md:min-h-[3rem]">
+								<span id="typewriter-text"></span>
+								<span class="inline-block w-2 h-5 bg-zinc-400 animate-pulse align-middle ml-1"></span>
+							</p>
 
-				<!-- 技能标签墙 -->
-				<div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-10">
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">React Native (Expo)</span>
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">Astro & Tailwind CSS</span>
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">Supabase (PostgreSQL)</span>
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">Prompt Engineering</span>
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">Python</span>
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">UI/UX Design</span>
-					<span class="px-4 py-2 bg-zinc-900/30 backdrop-blur-md text-zinc-300 rounded-full text-sm font-medium border border-white/10 hover:border-zinc-500/50 hover:text-white transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(161,161,170,0.1)] hover:-translate-y-0.5">视频制作与剪辑</span>
-				</div>
-			</section>
-			
-			<div class="relative max-w-6xl mx-auto px-4 mb-8">
-				<!-- 左箭头按钮 -->
-				<button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 -left-6 md:-left-8 w-12 h-12 flex items-center justify-center text-2xl bg-zinc-800 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
-					&lt;
-				</button>
+							<p class="text-zinc-500 text-lg italic">
+								将转瞬即逝的灵感埋葬于云端，或是创造下一个赛博神谕
+							</p>
 
-				<!-- 项目卡片滚动容器 -->
-				<div id="project-slider" class="flex items-stretch flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-					{Array.isArray(sortedProjects) && [...sortedProjects, ...sortedProjects, ...sortedProjects].map((project, index) => {
-							return (
-							<a 
-								href={`/projects/${project.slug}`} 
-								class="w-[85vw] md:w-[calc((100%-3rem)/3)] shrink-0 snap-center h-full flex flex-col"
-							>
-								<article class="relative overflow-hidden rounded-xl bg-zinc-900/30 backdrop-blur-md border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-500/50 hover:shadow-[0_0_30px_rgba(161,161,170,0.15)] group h-full flex flex-col justify-between">
-									{project.data.image && (
-										<img 
-											src={project.data.image} 
-											alt={project.data.title} 
-											class="w-full aspect-video object-cover"
-										/>
-									)}
-									<div class="p-6">
-										<h2 class="text-xl font-semibold mb-2 break-words">{project.data.title}</h2>
-										<p class="text-gray-300 mb-4 text-sm break-words">{project.data.description}</p>
-										<div class="flex flex-wrap gap-2 mb-4">
-											{Array.isArray(project.data.tags) && project.data.tags.map((tag) => (
-												<span class="px-3 py-1 bg-neutral-700 text-white text-xs font-medium rounded-full whitespace-nowrap">
-													{tag}
-												</span>
-											))}
-										</div>
-										<div class="flex items-center justify-between text-sm text-gray-400">
-											<span>{new Date(project.data.date).toLocaleDateString()}</span>
-											<span class="text-blue-400 hover:underline">查看项目</span>
-										</div>
+							<!-- 终端状态条样式的求职方向 -->
+							<div class="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 rounded-lg p-3 font-mono text-sm">
+								<span class="text-purple-400">&gt;</span>
+								<span class="text-zinc-400 ml-2">Current Objective:</span>
+								<span class="text-emerald-400 ml-2 shadow-[0_0_8px_rgba(16,185,129,0.5)]">[ AI产品经理 / 产品经理 ] | 附加技能树: 游戏策划</span>
+							</div>
+
+							<!-- 核心技能徽章 -->
+							<div class="mt-6">
+								<span class="text-xs text-zinc-500 font-mono mb-3 block">// Core Competencies 已点亮技能节点</span>
+								<div class="flex flex-wrap gap-3">
+									<span class="px-3 py-1.5 text-sm text-zinc-300 bg-white/5 border border-white/10 rounded-full hover:border-purple-500/50 hover:text-white transition-colors cursor-default backdrop-blur-sm">🧠 AI Coding</span>
+									<span class="px-3 py-1.5 text-sm text-zinc-300 bg-white/5 border border-white/10 rounded-full hover:border-purple-500/50 hover:text-white transition-colors cursor-default backdrop-blur-sm">⚡ 全栈敏捷原型</span>
+									<span class="px-3 py-1.5 text-sm text-zinc-300 bg-white/5 border border-white/10 rounded-full hover:border-purple-500/50 hover:text-white transition-colors cursor-default backdrop-blur-sm">🎮 游戏化体验设计</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- 右侧：操作中心（Action Center） -->
+						<div class="md:col-span-1 space-y-6">
+							<!-- 状态概览 -->
+							<div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-700/50 rounded-xl p-6">
+								<h3 class="text-lg font-semibold text-zinc-100 mb-4 flex items-center gap-2">
+									<span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+									当前状态
+								</h3>
+								<div class="space-y-3">
+									<div class="flex justify-between items-center">
+										<span class="text-zinc-400 text-sm">项目数量</span>
+										<span class="text-zinc-200 font-mono">{sortedProjects.length}</span>
 									</div>
-								</article>
+									<div class="flex justify-between items-center">
+										<span class="text-zinc-400 text-sm">技术栈</span>
+										<span class="text-zinc-200 font-mono">7+</span>
+									</div>
+									<div class="flex justify-between items-center">
+										<span class="text-zinc-400 text-sm">状态</span>
+										<span class="text-emerald-400 font-medium">活跃开发中</span>
+									</div>
+									<div class="flex justify-between items-center">
+										<span class="text-zinc-400 text-sm">毕业年份</span>
+										<span class="text-zinc-200 font-mono">2026</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- 获取简历按钮 -->
+							<a 
+								href="#" 
+								class="block w-full py-3 px-4 bg-zinc-900/80 backdrop-blur-md border border-purple-500/50 rounded-xl text-center text-zinc-100 font-medium transition-all duration-300 hover:bg-zinc-800/80 hover:border-purple-400 hover:shadow-[0_0_20px_rgba(139,92,246,0.25)] hover:-translate-y-1"
+							>
+								📄 获取简历 (Download CV)
 							</a>
-						);
-					})}
-				</div>
 
-				<!-- 右箭头按钮 -->
-				<button id="next-btn" class="absolute top-1/2 -translate-y-1/2 -right-6 md:-right-8 w-12 h-12 flex items-center justify-center text-2xl bg-zinc-800 hover:bg-zinc-600 text-white rounded-full z-10 shadow-xl border border-zinc-600 cursor-pointer transition-colors">
-					&gt;
-				</button>
-			</div>
+							<!-- 社交联络矩阵 -->
+							<div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-700/50 rounded-xl p-4">
+								<h4 class="text-sm font-semibold text-zinc-400 mb-3">社交联络</h4>
+								<div class="flex justify-between">
+									<a 
+										href="https://github.com/hehehehehehecai" 
+										target="_blank" 
+										rel="noopener noreferrer"
+										class="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors duration-300 hover:bg-zinc-800/60"
+									>
+										<span class="text-lg">🖥️</span>
+										<span class="text-xs text-zinc-400">GitHub</span>
+									</a>
+									<a 
+										href="https://space.bilibili.com/455676955?spm_id_from=333.934.0.0" 
+										target="_blank" 
+										rel="noopener noreferrer"
+										title="4 年独立游戏 UP 主 / 游戏化产品灵感源泉"
+										class="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors duration-300 hover:bg-zinc-800/60"
+									>
+										<span class="text-lg">📺</span>
+										<span class="text-xs text-zinc-400">Bilibili</span>
+									</a>
+									<a 
+										href="mailto:614517030@qq.com" 
+										class="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors duration-300 hover:bg-zinc-800/60"
+									>
+										<span class="text-lg">📧</span>
+										<span class="text-xs text-zinc-400">Email</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
-			<!-- 敏捷进化时间线 -->
-			<section class="max-w-3xl mx-auto mt-32 mb-24 px-4">
-				<h2 class="text-2xl md:text-3xl font-bold text-white mb-12 text-center tracking-tight">
-					Continuous Delivery
-				</h2>
-				
-				<div class="relative border-l border-zinc-700/50 ml-3 md:mx-auto md:w-fit">
+				<!-- 核心项目画廊（Asymmetrical Project Bento） -->
+				{sortedProjects.map((project, index) => (
+					<a 
+						href={`/projects/${project.slug}`} 
+						class={`${index === 0 ? 'md:col-span-2' : 'md:col-span-1'} group`}
+					>
+						<article class="bg-[#131313]/60 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] h-full flex flex-col">
+							{project.data.image && (
+								<img 
+									src={project.data.image} 
+									alt={project.data.title} 
+									class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+								/>
+							)}
+							<div class="p-6 flex-1 flex flex-col justify-between">
+								<h2 class="text-xl font-semibold mb-2 break-words text-zinc-100">{project.data.title}</h2>
+								<p class="text-zinc-400 mb-4 text-sm break-words flex-1">{project.data.description}</p>
+								<div class="flex flex-wrap gap-2 mb-4">
+									{Array.isArray(project.data.tags) && project.data.tags.map((tag) => (
+										<span class="px-3 py-1 bg-zinc-800/60 text-zinc-300 text-xs font-medium rounded-full whitespace-nowrap border border-zinc-700/50">
+											{tag}
+										</span>
+									))}
+								</div>
+								<div class="flex items-center justify-between text-sm">
+									<span class="text-zinc-500">{new Date(project.data.date).toLocaleDateString()}</span>
+									<span class="text-purple-400 hover:underline font-medium">查看项目</span>
+								</div>
+							</div>
+						</article>
+					</a>
+				))}
+
+				<!-- 底部技术栈卡片（Tech Stack Bento） -->
+				<section class="md:col-span-3 bg-[#131313]/60 backdrop-blur-md border border-zinc-800 rounded-2xl p-6 md:p-8">
+					<h3 class="text-lg font-semibold text-zinc-100 mb-4 flex items-center gap-2">
+						<span class="w-2 h-2 rounded-full bg-green-500"></span>
+						核心技术栈
+					</h3>
+					<div class="flex flex-wrap gap-3">
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">React Native (Expo)</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">Astro</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">Tailwind CSS</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">Supabase</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">Zustand</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">Python</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">DeepSeek API</span>
+						<span class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-full text-sm font-medium border border-zinc-700/50 hover:border-purple-500/50 hover:text-white transition-all duration-300">UI/UX Design</span>
+					</div>
+				</section>
+
+				<!-- 敏捷进化时间线 -->
+				<section class="md:col-span-3 bg-[#131313]/60 backdrop-blur-md border border-zinc-800 rounded-2xl p-6 md:p-8">
+					<h2 class="text-2xl font-bold text-zinc-100 mb-8 text-center">
+						Continuous Delivery
+					</h2>
 					
-					<div class="relative pl-8 mb-10 group">
-						<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-white rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
-						<time class="text-sm font-mono text-zinc-500 block mb-1">2026.03</time>
-						<h3 class="text-lg font-semibold text-zinc-200 mb-1">双端齐发：跨平台与 AI 结合</h3>
-						<p class="text-zinc-400 text-sm leading-relaxed">
-							接连上线《平行信箱》、《赛博求签》与《灵感公墓》。突破跨平台硬件 API 限制，完成从 Serverless 到云端数据库持久化架构的深度实践，以极其高产的节奏打造创意闭环。
-						</p>
+					<div class="relative border-l border-zinc-700/50 ml-3 md:mx-auto md:w-fit">
+						<div class="relative pl-8 mb-10 group">
+							<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-purple-500 rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
+							<time class="text-sm font-mono text-zinc-500 block mb-1">2026.03</time>
+							<h3 class="text-lg font-semibold text-zinc-200 mb-1">双端齐发：跨平台与 AI 结合</h3>
+							<p class="text-zinc-400 text-sm leading-relaxed">
+								接连上线《平行信箱》、《赛博求签》与《灵感公墓》。突破跨平台硬件 API 限制，完成从 Serverless 到云端数据库持久化架构的深度实践，以极其高产的节奏打造创意闭环。
+							</p>
+						</div>
+						<div class="relative pl-8 mb-10 group">
+							<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-purple-500 rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
+							<time class="text-sm font-mono text-zinc-500 block mb-1">2026.02</time>
+							<h3 class="text-lg font-semibold text-zinc-200 mb-1">极简转型：个人财务沙盘</h3>
+							<p class="text-zinc-400 text-sm leading-relaxed">
+								从被拒审中敏捷转型，完成《生存余量 (Runway)》的重构。实现核心计算逻辑，打造极简且直击痛点的财务推演工具。
+							</p>
+						</div>
+						<div class="relative pl-8 mb-10 group">
+							<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-purple-500 rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
+							<time class="text-sm font-mono text-zinc-500 block mb-1">2026.01</time>
+							<h3 class="text-lg font-semibold text-zinc-200 mb-1">桌面效率：半衰期文件管理</h3>
+							<p class="text-zinc-400 text-sm leading-relaxed">
+								构建沉浸式桌面工具《流沙中转站》。将"断舍离"哲学与粒子沙丘视觉效果结合，解决桌面文件冗余痛点。
+							</p>
+						</div>
+						<div class="relative pl-8 group">
+							<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-purple-500 rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
+							<time class="text-sm font-mono text-zinc-500 block mb-1">2025.12</time>
+							<h3 class="text-lg font-semibold text-zinc-200 mb-1">游戏化探索：经济闭环管理</h3>
+							<p class="text-zinc-400 text-sm leading-relaxed">
+								独立开发《勇者酒馆》。将 RPG 像素风引入时间管理，设计完整的正向激励与经济闭环系统。
+							</p>
+						</div>
 					</div>
-					<div class="relative pl-8 mb-10 group">
-						<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-white rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
-						<time class="text-sm font-mono text-zinc-500 block mb-1">2026.02</time>
-						<h3 class="text-lg font-semibold text-zinc-200 mb-1">极简转型：个人财务沙盘</h3>
-						<p class="text-zinc-400 text-sm leading-relaxed">
-							从被拒审中敏捷转型，完成《生存余量 (Runway)》的重构。实现核心计算逻辑，打造极简且直击痛点的财务推演工具。
-						</p>
-					</div>
-					<div class="relative pl-8 mb-10 group">
-						<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-white rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
-						<time class="text-sm font-mono text-zinc-500 block mb-1">2026.01</time>
-						<h3 class="text-lg font-semibold text-zinc-200 mb-1">桌面效率：半衰期文件管理</h3>
-						<p class="text-zinc-400 text-sm leading-relaxed">
-							构建沉浸式桌面工具《流沙中转站》。将"断舍离"哲学与粒子沙丘视觉效果结合，解决桌面文件冗余痛点。
-						</p>
-					</div>
-					<div class="relative pl-8 group">
-						<div class="absolute w-3 h-3 bg-zinc-500 group-hover:bg-white rounded-full -left-[6.5px] top-1.5 border-2 border-zinc-900 transition-colors"></div>
-						<time class="text-sm font-mono text-zinc-500 block mb-1">2025.12</time>
-						<h3 class="text-lg font-semibold text-zinc-200 mb-1">游戏化探索：经济闭环管理</h3>
-						<p class="text-zinc-400 text-sm leading-relaxed">
-							独立开发《勇者酒馆》。将 RPG 像素风引入时间管理，设计完整的正向激励与经济闭环系统。
-						</p>
-					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</main>
-		<footer class="container mx-auto px-4 py-6 border-t border-neutral-800 mt-12">
+		<footer class="container mx-auto px-4 py-6 border-t border-zinc-800 mt-12 max-w-6xl">
 			<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-				<p class="text-gray-500 text-sm">© 2026 Built with Astro & Trae</p>
+				<p class="text-zinc-500 text-sm">© 2026 Built with Astro & Trae</p>
 				<div class="flex gap-3">
 					<a 
 						href="https://github.com/hehehehehehecai" 
 						target="_blank" 
 						rel="noopener noreferrer"
-						class="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 transition-colors duration-300 font-medium"
+						class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-md hover:bg-zinc-800/60 transition-colors duration-300 font-medium border border-zinc-700/50"
 					>
 						GitHub
 					</a>
 					<a 
 						href="mailto:614517030@qq.com" 
-						class="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 transition-colors duration-300 font-medium"
+						class="px-4 py-2 bg-zinc-900/60 text-zinc-300 rounded-md hover:bg-zinc-800/60 transition-colors duration-300 font-medium border border-zinc-700/50"
 					>
 						Email Me
 					</a>
 				</div>
 			</div>
 		</footer>
-
-		<script is:inline>
-			// 滚动控制脚本
-			const slider = document.getElementById('project-slider');
-			const prevBtn = document.getElementById('prev-btn');
-			const nextBtn = document.getElementById('next-btn');
-
-			if (slider && prevBtn && nextBtn) {
-				prevBtn.addEventListener('click', () => {
-					slider.scrollBy({ left: -350, behavior: 'smooth' });
-				});
-
-				nextBtn.addEventListener('click', () => {
-					slider.scrollBy({ left: 350, behavior: 'smooth' });
-				});
-			}
-		</script>
 
 		<script is:inline>
 			document.addEventListener('DOMContentLoaded', () => {
