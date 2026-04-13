@@ -19,25 +19,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// 模拟技术栈和职责数据（实际项目中可从 frontmatter 中获取）
-const techStack = [
-  'React Native (Expo)',
-  'Astro',
-  'Tailwind CSS',
-  'Supabase',
-  'TypeScript',
-  'Zustand',
-  'DeepSeek API'
-];
-
-const myRole = [
-  '全栈开发与项目架构',
-  'UI/UX 设计与实现',
-  '后端 API 开发',
-  '数据库设计与优化',
-  '跨平台兼容性处理',
-  '性能优化与调试'
-];
+// 从 Frontmatter 中获取技术栈和职责数据
+const techStack = entry.data.techStack || [];
+const myRole = entry.data.roles || [];
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>
@@ -184,30 +168,34 @@ const myRole = [
         <!-- 右侧窄区 -->
         <div class="space-y-8">
           <!-- 技术栈卡片 -->
-          <section class="backdrop-blur-sm bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 shadow-lg">
-            <h3 class="text-xl font-semibold text-zinc-100 mb-4">技术栈</h3>
-            <div class="space-y-2">
-              {techStack.map((tech, index) => (
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                  <span class="text-zinc-300 text-sm">{tech}</span>
-                </div>
-              ))}
-            </div>
-          </section>
+          {techStack.length > 0 && (
+            <section class="backdrop-blur-sm bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 shadow-lg">
+              <h3 class="text-xl font-semibold text-zinc-100 mb-4">技术栈</h3>
+              <div class="space-y-2">
+                {techStack.map((tech) => (
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-violet-500"></div>
+                    <span class="text-zinc-300 text-sm">{tech}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <!-- 我的职责卡片 -->
-          <section class="backdrop-blur-sm bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 shadow-lg" id="my-role">
-            <h3 class="text-xl font-semibold text-zinc-100 mb-4">我的职责</h3>
-            <div class="space-y-2">
-              {myRole.map((role, index) => (
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
-                  <span class="text-zinc-300 text-sm">{role}</span>
-                </div>
-              ))}
-            </div>
-          </section>
+          {myRole.length > 0 && (
+            <section class="backdrop-blur-sm bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 shadow-lg" id="my-role">
+              <h3 class="text-xl font-semibold text-zinc-100 mb-4">我的职责</h3>
+              <div class="space-y-2">
+                {myRole.map((role) => (
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+                    <span class="text-zinc-300 text-sm">{role}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <!-- 项目信息卡片 -->
           <section class="backdrop-blur-sm bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 shadow-lg">

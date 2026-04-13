@@ -2,7 +2,7 @@
 title: "流沙中转站"
 description: "一款基于\"断舍离\"哲学与半衰期概念的沉浸式桌面文件管理工具"
 date: 2026-01-15
-image: "https://placehold.co/600x400/2a2a2a/FFF?text=Quicksand+Dock"
+image: "https://placehold.co/600x400/2a2a2a/00FF41?text=Quicksand+Dock"
 tags: ["Desktop", "Efficiency"]
 ---
 

@@ -2,8 +2,10 @@
 title: "AI Video Agent (短视频自动化剪辑智能体)"
 description: '打破传统剪辑拖拽，开创"意图即成品"的 Agent 工作流，展现 AI 泛化创作与用户精准控制的完美平衡。'
 date: 2026-04-10
-image: "https://placehold.co/600x400/2a2a2a/FFF?text=AI+Video+Agent"
+image: "https://placehold.co/600x400/1a1a1a/00FF41?text=AI+Video+Agent"
 tags: ["AI Agent", "Product Management", "Python", "多模态合成"]
+techStack: ['Python 3.10+', 'OpenAI API', 'MoviePy', 'edge-tts', 'FFmpeg', 'Tkinter', 'BeautifulSoup4', 'asyncio']
+roles: ['全栈架构设计', 'RAG 网页嗅探开发', '多模态音画同步算法', 'Prompt 工程与降错', '脏数据自动净化', '用户体验设计']
 ---
 
 # 🎬 个人项目：AI 短视频自动化剪辑智能体 (AI Video Agent)
